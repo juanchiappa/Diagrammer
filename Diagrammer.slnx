@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Diagrammer.Analyzers.DotNet/Diagrammer.Analyzers.DotNet.csproj" />
+  <Project Path="Diagrammer.Domain/Diagrammer.Domain.csproj" />
+  <Project Path="Diagrammer.Engine/Diagrammer.Engine.csproj" />
+  <Project Path="Diagrammer.UI.Avalonia/Diagrammer.UI.Avalonia.csproj" />
+</Solution>
