@@ -3,4 +3,6 @@
   <Project Path="Diagrammer.Domain/Diagrammer.Domain.csproj" />
   <Project Path="Diagrammer.Engine/Diagrammer.Engine.csproj" />
   <Project Path="Diagrammer.UI.Avalonia/Diagrammer.UI.Avalonia.csproj" />
+  <Project Path="Diagrammer.Storage/Diagrammer.Storage.csproj" />
+  <Project Path="Diagrammer.Tests.Storage/Diagrammer.Tests.Storage.csproj" />
 </Solution>

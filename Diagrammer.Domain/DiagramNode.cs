@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Diagrammer.Domain;
 
+[JsonPolymorphic]
+[JsonDerivedType(typeof(GenericNode), typeDiscriminator: "generic")]
 public abstract class DiagramNode
 {
     public Guid Id { get; init; } = Guid.NewGuid();
