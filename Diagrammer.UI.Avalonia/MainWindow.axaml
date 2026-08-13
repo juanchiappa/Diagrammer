@@ -2,8 +2,45 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Diagrammer.UI.Avalonia.ViewModels"
+        xmlns:domain="clr-namespace:Diagrammer.Domain;assembly=Diagrammer.Domain"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Diagrammer.UI.Avalonia.MainWindow"
-        Title="Diagrammer.UI.Avalonia">
-    Welcome to Avalonia!
+        x:DataType="vm:MainViewModel"
+        Title="Diagrammer">
+    
+    <ItemsControl ItemsSource="{Binding Nodes}">
+        <!-- Use a Canvas to layout the items -->
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <Canvas Background="#1E1E1E" />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        
+        <!-- Bind the Canvas Left and Top to the Node's X and Y -->
+        <ItemsControl.Styles>
+            <Style Selector="ItemsControl > ContentPresenter" x:DataType="domain:DiagramNode">
+                <Setter Property="Canvas.Left" Value="{Binding X}" />
+                <Setter Property="Canvas.Top" Value="{Binding Y}" />
+            </Style>
+        </ItemsControl.Styles>
+
+        <!-- Define how each node looks -->
+        <ItemsControl.ItemTemplate>
+            <DataTemplate x:DataType="domain:DiagramNode">
+                <Border Background="#2D2D30" 
+                        BorderBrush="#007ACC" 
+                        BorderThickness="2" 
+                        CornerRadius="8" 
+                        Padding="16,8"
+                        BoxShadow="0 4 8 0 #40000000">
+                    <TextBlock Text="{Binding Name}" 
+                               Foreground="White" 
+                               FontWeight="SemiBold" 
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"/>
+                </Border>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
 </Window>
